@@ -1,0 +1,34 @@
+# --- DEPENDENCIAS (Vital para todos los ejercicios) ---
+# Ignora node_modules en la raíz y en CUALQUIER subcarpeta (01, 02, etc.)
+node_modules/
+
+# --- ARCHIVOS DE LOGS ---
+npm-debug.log*
+yarn-debug.log*
+firebase-debug.log*
+ui-debug.log*
+
+# --- FIREBASE ---
+# Caché de emuladores y hosting
+.firebase/
+# Archivos de caché de runtime
+.runtimeconfig.json
+
+# --- BUILD & DIS (TypeScript) ---
+# Carpetas donde se guarda el código compilado a JS
+dist/
+lib/
+out/
+
+# --- VARIABLES DE ENTORNO (Seguridad) ---
+# NUNCA subir claves privadas
+.env
+.env.local
+.env.*.local
+
+# --- SISTEMA OPERATIVO E IDE ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
