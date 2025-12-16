@@ -1,8 +1,8 @@
-# Guía de estudio
+# Study Guide
 
-## 📊 Progreso
+## 📊 Progress
 
-| Ejercicio | Estado | Tema |
+| Exercise | Status | Topic |
 | :--- | :--- | :--- |
 | **01** | ✅ Done | [Introducción a Firebase](./01-introduccion-a-firebase) |
 | **02** | ⬜ Pending | [Configuración Inicial](./02-configuracion-inicial) |
