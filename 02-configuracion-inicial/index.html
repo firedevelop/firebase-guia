@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 2: Setup Firebase</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; }
+        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; max-width: 400px; }
+        .status { margin-top: 20px; padding: 10px; border-radius: 5px; font-weight: bold; }
+        .success { background-color: #d1fae5; color: #065f46; border: 1px solid #34d399; }
+        .error { background-color: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>🥖 Panadería System</h2>
+        <p>Verificando conexión con el Backend...</p>
+        
+        <div id="status-box" class="status">
+            Cargando SDK...
+        </div>
+    </div>
+
+    <script type="module">
+        import { app } from './firebase-config.js';
+
+        const statusBox = document.getElementById('status-box');
+
+        try {
+            if (app) {
+                console.log("Instancia de Firebase:", app);
+                statusBox.textContent = `✅ Conectado a: ${app.options.projectId}`;
+                statusBox.classList.add('success');
+            }
+        } catch (error) {
+            console.error("Error de conexión:", error);
+            statusBox.textContent = "❌ Error al conectar con Firebase";
+            statusBox.classList.add('error');
+        }
+    </script>
+</body>
+</html>
