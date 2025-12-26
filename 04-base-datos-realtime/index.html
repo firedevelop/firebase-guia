@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Aforo en Tiempo Real | Booking App</title>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #2c3e50; color: white; margin: 0; }
+        
+        .card { background: white; color: #333; padding: 40px; border-radius: 20px; text-align: center; width: 300px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        
+        h1 { margin: 0; font-size: 1.2rem; color: #7f8c8d; text-transform: uppercase; letter-spacing: 2px; }
+        
+        #counter { font-size: 8rem; margin: 20px 0; font-weight: bold; color: #2c3e50; transition: color 0.2s; }
+        
+        .controls { display: flex; gap: 20px; justify-content: center; }
+        
+        button { width: 60px; height: 60px; font-size: 2rem; border: none; border-radius: 50%; cursor: pointer; transition: transform 0.1s; color: white; display: flex; align-items: center; justify-content: center; }
+        
+        button:active { transform: scale(0.9); }
+        .btn-inc { background-color: #27ae60; }
+        .btn-dec { background-color: #c0392b; }
+
+        .live-indicator { margin-top: 20px; font-size: 0.8rem; color: #2ecc71; display: flex; align-items: center; gap: 5px; }
+        .dot { width: 10px; height: 10px; background-color: #2ecc71; border-radius: 50%; animation: pulse 1.5s infinite; }
+
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Aforo Gimnasio</h1>
+        
+        <div id="counter">--</div>
+
+        <div class="controls">
+            <button id="btn-dec" class="btn-dec">-</button>
+            <button id="btn-inc" class="btn-inc">+</button>
+        </div>
+    </div>
+
+    <div class="live-indicator">
+        <div class="dot"></div> Conexión en vivo
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
