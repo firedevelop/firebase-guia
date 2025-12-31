@@ -1,10 +1,6 @@
 import { app } from './firebase-config.js';
 import { 
-    getDatabase, 
-    ref, 
-    set, 
-    onValue, 
-    get 
+    getDatabase, ref, set, onValue, get 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 // 1. Inicializar la Base de Datos
