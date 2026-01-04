@@ -9,6 +9,6 @@
 | **03** | ✅ Done | [Autenticación (Firebase Auth)](./03-autenticacion) |
 | **04** | ✅ Done | [Base de datos en tiempo real (Realtime Database)](./04-base-datos-realtime) |
 | **05** | ✅ Done | [Firestore](./05-firestore) |
-| **06** | ⬜ Pending | [Almacenamiento (Storage)](./06-storage) |
-| **07** | ⬜ Pending | [Funciones Cloud (Cloud Functions)](./07-cloud-functions) |
+| **06** | ✅ Done | [Almacenamiento (Storage)](./06-storage) |
+| **07** | ✅ Done | [Funciones Cloud (Cloud Functions)](./07-cloud-functions) |
 
