@@ -1,20 +1,21 @@
-const { onUserCreated } = require("firebase-functions/v2/identity");
-const { logger } = require("firebase-functions");
+// Usamos explícitamente la versión 1 (más estable para pruebas)
+const functions = require('firebase-functions/v1');
+const admin = require("firebase-admin");
 
-// Esta función se dispara AUTOMÁTICAMENTE cuando un usuario se registra en Firebase Auth
-exports.enviarEmailBienvenida = onUserCreated((event) => {
-  // 1. Obtenemos los datos del usuario recién creado
-  const usuario = event.data;
-  const email = usuario.email;
-  const uid = usuario.uid;
+// Inicializamos la app (obligatorio)
+admin.initializeApp();
 
-  // 2. Aquí iría la lógica de envío real (SendGrid, Nodemailer, etc.)
-  // Como no tenemos servidor de correo configurado, simulamos el envío en los logs.
-  
-  logger.info(`✨ NUEVO USUARIO DETECTADO: ${email}`);
-  logger.info(`📧 Enviando email de bienvenida a ${email}...`);
-  logger.info(`✅ Email enviado correctamente al usuario ${uid}`);
+// Función HTTP: Se activa visitando una URL
+exports.addMessage = functions.https.onRequest(async (req, res) => {
+  // 1. Coge el texto de la URL (?text=Hola)
+  const original = req.query.text;
 
-  // En un caso real, aquí usaríamos:
-  // await transporter.sendMail({ from: "admin@gym.com", to: email, subject: "¡Hola!"... })
+  // 2. Lo guarda en Firestore
+  const writeResult = await admin
+    .firestore()
+    .collection("messages")
+    .add({ original: original });
+
+  // 3. Responde al navegador
+  res.json({ result: `Mensaje guardado con ID: ${writeResult.id}` });
 });
